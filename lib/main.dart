@@ -12,7 +12,7 @@ class StaffApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Staff Task Manager',
+      title: 'Duoob',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
