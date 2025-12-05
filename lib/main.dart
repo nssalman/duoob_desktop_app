@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:webview_all/webview_all.dart';
 
 // --- Entry Point ---
 void main() {
@@ -389,25 +390,29 @@ class _MockWebView extends StatelessWidget {
       child: Stack(
         children: [
           Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Icon(Icons.public, size: 80, color: Colors.grey),
-                const SizedBox(height: 20),
-                const Text('Web Content Area', style: TextStyle(fontSize: 24, color: Colors.black87)),
-                const SizedBox(height: 10),
-                Text('Loading: $url', style: const TextStyle(fontSize: 16, color: Colors.black54)),
-                const SizedBox(height: 30),
-                FilledButton.icon(
-                  onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Opening $url...')));
-                  },
-                  icon: const Icon(Icons.open_in_new),
-                  label: const Text('Open in Browser'),
-                ),
-              ],
-            ),
-          ),
+          // Look here!  
+          child: Webview(url: "$url")
+      ),
+          // Center(
+          //   child: Column(
+          //     mainAxisAlignment: MainAxisAlignment.center,
+          //     children: [
+          //       const Icon(Icons.public, size: 80, color: Colors.grey),
+          //       const SizedBox(height: 20),
+          //       const Text('Web Content Area', style: TextStyle(fontSize: 24, color: Colors.black87)),
+          //       const SizedBox(height: 10),
+          //       Text('Loading: $url', style: const TextStyle(fontSize: 16, color: Colors.black54)),
+          //       const SizedBox(height: 30),
+          //       FilledButton.icon(
+          //         onPressed: () {
+          //           ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Opening $url...')));
+          //         },
+          //         icon: const Icon(Icons.open_in_new),
+          //         label: const Text('Open in Browser'),
+          //       ),
+          //     ],
+          //   ),
+          // ),
         ],
       ),
     );
